@@ -30,6 +30,8 @@ export default class ContactForm extends Component {
   numberInputId = nanoid();
 
   render() {
+    const { name, number } = this.state;
+
     return (
       <form className={s.form} onSubmit={this.handlerSubmit}>
         <label htmlFor={this.nameInputId}>

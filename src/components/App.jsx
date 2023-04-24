@@ -1,5 +1,7 @@
 import React, { Component } from 'react';
 import ContactForm from './ContactForm/ContactForm';
+import ContactList from './ContactList/ContactList';
+import { nanoid } from 'nanoid';
 import s from './App.module.css'
 
 export default class App extends Component {
@@ -8,7 +10,14 @@ state = {
    filter: ''
 }
 
-  formSubmitHandler = data => {console.log(data);}
+  formSubmitHandler = data => {
+    // const newContact = { ...data, id: nanoid() };
+    // this.setState(prevState => ({
+    //   contacts: [...prevState.contacts, newContact],
+    // }));
+   }
+
+
   
   render() {
     return (
@@ -17,7 +26,7 @@ state = {
     <ContactForm onSubmit={this.formSubmitHandler}  />
 
     <h2 className={s.title}>Contacts</h2>
-
+   <ContactList contacts={this.state.contacts} />
 </div>)
 }
 }
